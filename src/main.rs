@@ -36,11 +36,24 @@ fn main() {
     let webpage_contents = retrieve_local_file(&formatted_date.to_string());
 
     let document = scraper::Html::parse_document(&webpage_contents);
-    let selector = scraper::Selector::parse("h3").unwrap();
+    let selector = scraper::Selector::parse("div.mt-3").unwrap();
 
     for element in document.select(&selector) {
-        println!("\n");
+        // get nested h3
+        let title_selector = scraper::Selector::parse("h3").unwrap();
+        let title_element = match element.select(&title_selector).next() {
+            Some(element) => element,
+            None => continue,
+        };
 
-        println!("{:?}", element.inner_html())
+        // inner div contains the description
+        let description_selector = scraper::Selector::parse("div").unwrap();
+        let description_element = element.select(&description_selector).next().unwrap();
+
+        println!("==================");
+        println!("{}", title_element.inner_html());
+        println!("\n");
+        println!("{}", description_element.inner_html());
+        println!("\n");
     }
 }
