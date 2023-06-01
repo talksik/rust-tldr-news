@@ -1,6 +1,7 @@
 use std::io::Read;
 
 use chrono::prelude::*;
+use colored::*;
 
 const TLDR_BASE_URL: &str = "https://tldr.tech/tech";
 
@@ -51,7 +52,7 @@ fn main() {
         let description_element = element.select(&description_selector).next().unwrap();
 
         println!("==================");
-        println!("{}", title_element.inner_html());
+        println!("{}", title_element.inner_html().green());
         println!("\n");
         println!("{}", description_element.inner_html());
         println!("\n");
