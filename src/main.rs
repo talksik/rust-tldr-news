@@ -31,14 +31,7 @@ fn main() {
     println!("args: {:?}", args);
 
     if args.len() == 1 {
-        println!("About");
-        println!("   news is a cli tool to get the latest tech news from tldr.tech");
-
-        println!("Usage");
-
-        println!("{}", "   $ news today".green());
-        println!("{}", "   $ news yesterday(not implemented)".blue());
-        println!("{}", "   $ news help".red());
+        print_help();
 
         return;
     }
@@ -46,8 +39,20 @@ fn main() {
     let command = &args.get(1).unwrap();
     match command.as_str() {
         "today" => get_and_display_today_news(),
+        "help" => print_help(),
         _ => println!("unknown command. use `news help` to see available commands"),
     }
+}
+
+fn print_help() {
+    println!("About");
+    println!("   news is a cli tool to get the latest tech news from tldr.tech");
+
+    println!("Usage");
+
+    println!("{}", "   $ news today".green());
+    println!("{}", "   $ news yesterday(not implemented)".blue());
+    println!("{}", "   $ news help".red());
 }
 
 fn get_and_display_today_news() {
@@ -83,4 +88,3 @@ fn get_and_display_today_news() {
         println!("\n");
     }
 }
-

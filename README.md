@@ -19,4 +19,10 @@ curl ... | sh
 
 # Usage
 
-Show me today’s news: `rust-tldr today`
+```
+    $ news today
+```
+
+```
+    $ news help
+```

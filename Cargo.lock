@@ -690,6 +690,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e4a24736216ec316047a1fc4252e27dabb04218aa4a3f37c6e7ddbf1f9782b54"
 
 [[package]]
+name = "news"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "colored",
+ "reqwest",
+ "scraper",
+]
+
+[[package]]
 name = "nodrop"
 version = "0.1.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1073,16 +1083,6 @@ dependencies = [
  "wasm-bindgen-futures",
  "web-sys",
  "winreg",
-]
-
-[[package]]
-name = "rust-tldr-news"
-version = "0.1.0"
-dependencies = [
- "chrono",
- "colored",
- "reqwest",
- "scraper",
 ]
 
 [[package]]
