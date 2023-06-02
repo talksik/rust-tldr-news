@@ -26,8 +26,31 @@ fn retrieve_local_file(file_name: &str) -> String {
 }
 
 fn main() {
-    println!("hello world");
+    // if no args, print commands
+    let args: Vec<String> = std::env::args().collect();
+    println!("args: {:?}", args);
 
+    if args.len() == 1 {
+        println!("About");
+        println!("   news is a cli tool to get the latest tech news from tldr.tech");
+
+        println!("Usage");
+
+        println!("{}", "   $ news today".green());
+        println!("{}", "   $ news yesterday(not implemented)".blue());
+        println!("{}", "   $ news help".red());
+
+        return;
+    }
+
+    let command = &args.get(1).unwrap();
+    match command.as_str() {
+        "today" => get_and_display_today_news(),
+        _ => println!("unknown command. use `news help` to see available commands"),
+    }
+}
+
+fn get_and_display_today_news() {
     // format to 2023-06-05
     let today = Local::now();
     let formatted_date = today.format("%Y-%m-%d");
@@ -60,3 +83,4 @@ fn main() {
         println!("\n");
     }
 }
+
