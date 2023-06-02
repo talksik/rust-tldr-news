@@ -33,8 +33,8 @@ fn main() {
     let formatted_date = today.format("%Y-%m-%d");
     println!("fetching tldr for {}", formatted_date);
 
-    //let webpage_contents = retrieve_tldr_html(&formatted_date.to_string());
-    let webpage_contents = retrieve_local_file(&formatted_date.to_string());
+    let webpage_contents = retrieve_tldr_html(&formatted_date.to_string());
+    //let webpage_contents = retrieve_local_file(&formatted_date.to_string());
 
     let document = scraper::Html::parse_document(&webpage_contents);
     let selector = scraper::Selector::parse("div.mt-3").unwrap();
