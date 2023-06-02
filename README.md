@@ -5,17 +5,10 @@
 # Installation
 
 ### Git clone
+NOTE: you must have rust installed: https://www.rust-lang.org/tools/install
 
-run `./main` or `cargo run`
-
-### Improved version later on
-
-```bash
-curl ... | sh
-```
-
-- puts path variable automatically
-- shows list of commands
+1. clone repo
+2. run `cargo run`
 
 # Usage
 
