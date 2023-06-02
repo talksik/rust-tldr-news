@@ -63,7 +63,6 @@ fn get_and_display_today_news() {
 
     let webpage_contents = retrieve_tldr_html(&formatted_date.to_string());
 
-    println!("{}", webpage_contents);
     //let webpage_contents = retrieve_local_file(&formatted_date.to_string());
 
     let document = scraper::Html::parse_document(&webpage_contents);
