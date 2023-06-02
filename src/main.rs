@@ -6,7 +6,7 @@ use colored::*;
 const TLDR_BASE_URL: &str = "https://tldr.tech/tech";
 
 fn retrieve_tldr_html(date_string: &str) -> String {
-    let complete_url = format!("{}{}", TLDR_BASE_URL, date_string);
+    let complete_url = format!("{}/{}", TLDR_BASE_URL, date_string);
 
     reqwest::blocking::get(complete_url)
         .unwrap()
@@ -34,6 +34,8 @@ fn main() {
     println!("fetching tldr for {}", formatted_date);
 
     let webpage_contents = retrieve_tldr_html(&formatted_date.to_string());
+
+    println!("{}", webpage_contents);
     //let webpage_contents = retrieve_local_file(&formatted_date.to_string());
 
     let document = scraper::Html::parse_document(&webpage_contents);
