@@ -2,6 +2,7 @@ use std::io::Read;
 
 use chrono::prelude::*;
 use colored::*;
+use scraper::Element;
 
 const TLDR_BASE_URL: &str = "https://tldr.tech/tech";
 
@@ -63,12 +64,19 @@ fn get_and_display_today_news() {
 
     let webpage_contents = retrieve_tldr_html(&formatted_date.to_string());
 
-    //let webpage_contents = retrieve_local_file(&formatted_date.to_string());
+    //let webpage_contents = retrieve_local_file("2023-06-01");
 
     let document = scraper::Html::parse_document(&webpage_contents);
     let selector = scraper::Selector::parse("div.mt-3").unwrap();
 
     for element in document.select(&selector) {
+        // get a tag with href
+        let link_selector = scraper::Selector::parse("a").unwrap();
+        let link_href = match element.select(&link_selector).next() {
+            Some(element) => element.value().attr("href").unwrap(),
+            None => continue,
+        };
+
         // get nested h3
         let title_selector = scraper::Selector::parse("h3").unwrap();
         let title_element = match element.select(&title_selector).next() {
@@ -85,5 +93,6 @@ fn get_and_display_today_news() {
         println!("\n");
         println!("{}", description_element.inner_html());
         println!("\n");
+        println!("{}", link_href.blue());
     }
 }
