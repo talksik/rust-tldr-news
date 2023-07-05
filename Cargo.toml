@@ -1,6 +1,6 @@
 [package]
 name = "tldr-news"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "A command line tool to get the latest tldr tech news."
 license = "MIT"
