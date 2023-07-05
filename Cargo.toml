@@ -2,6 +2,9 @@
 name = "tldr-news"
 version = "0.1.0"
 edition = "2021"
+description = "A command line tool to get the latest tldr tech news."
+license = "MIT"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
