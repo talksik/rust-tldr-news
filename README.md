@@ -1,14 +1,12 @@
 # About
 
-`rust-tldr-news` is a cli tool to get today’s news via terminal.
+`tldr-news` is a cli tool to get the latest tech tldr news.
 
 # Installation
-
-### Git clone
-NOTE: you must have rust installed: https://www.rust-lang.org/tools/install
-
-1. clone repo
-2. run `cargo run`
+```
+cargo install tldr-news
+```
+OR clone repo and run `cargo run`
 
 # Usage
 
