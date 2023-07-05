@@ -11,9 +11,9 @@ OR clone repo and run `cargo run`
 # Usage
 
 ```
-    $ news today
+    $ tldr-news today
 ```
 
 ```
-    $ news help
+    $ tldr-news help
 ```
